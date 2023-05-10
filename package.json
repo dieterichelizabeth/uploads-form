@@ -1,0 +1,21 @@
+{
+    "name": "uploads-app",
+    "version": "1.0.0",
+    "description": "A Node Application for uploading files",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js",
+        "watch": "nodemon server.js",
+        "develop": "concurrently \"npm run watch\" \"cd client && npm start\"",
+        "build": "cd client && npm run build"
+    },
+    "author": "",
+    "devDependencies": {
+        "concurrently": "^8.0.1",
+        "nodemon": "^2.0.3"
+    },
+    "dependencies": {
+        "express": "^4.18.2",
+        "express-fileupload": "^1.4.0"
+    }
+}
