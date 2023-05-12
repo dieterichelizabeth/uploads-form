@@ -11,6 +11,41 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload());
+app.use(express.static("uploads"));
+
+// Test GET route
+app.get("/api/document", (req, res) => {
+  console.log("Sending file!");
+
+  const options = {
+    root: path.join(__dirname),
+  };
+
+  res.sendFile("./uploads/Test_document.pdf", options, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Sent!");
+    }
+  });
+});
+
+// Test GET route
+app.get("/api/image", (req, res) => {
+  console.log("Sending file!");
+
+  const options = {
+    root: path.join(__dirname),
+  };
+
+  res.sendFile("./uploads/test_pic.png", options, function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log("Sent!");
+    }
+  });
+});
 
 // Uploads Route
 app.post("/api/uploads", (req, res) => {

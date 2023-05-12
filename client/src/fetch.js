@@ -4,3 +4,15 @@ export const postFile = (formData) => {
     body: formData,
   });
 };
+
+export const getFile = () => {
+  return fetch("/api/image", {
+    method: "GET",
+  });
+};
+
+export const getDoc = () => {
+  return fetch("/api/document", {
+    method: "GET",
+  });
+};
